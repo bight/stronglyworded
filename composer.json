@@ -1,0 +1,13 @@
+{
+    "require-dev": {
+        "SquizLabs/PHP_CodeSniffer": "^2.7"
+    },
+    "require": {
+        "mpdf/mpdf": "^6.1",
+        "michelf/php-markdown": "^1.7",
+        "michelf/php-smartypants": "^1.7"
+    },
+    "scripts": {
+      "test": "vendor/bin/phpcs"
+    }
+}

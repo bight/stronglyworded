@@ -1,0 +1,29 @@
+@page {
+  size: 8.5in 11in;
+  margin: .5in .75in;
+}
+
+.sender {
+  text-align: right;
+  margin-bottom: 1em;
+}
+
+.date {
+  text-align: right;
+}
+
+.recipient {
+  margin-top: 2em;
+}
+
+.salutation {
+  margin-bottom: 1em;
+}
+
+.body {
+  margin-bottom: 1em;
+}
+
+.signature {
+  margin-bottom: 4em;
+}

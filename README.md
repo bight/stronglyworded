@@ -1,6 +1,8 @@
 [![Packagist](https://img.shields.io/packagist/v/greatislander/stronglyworded.svg?style=flat-square)](https://packagist.org/packages/greatislander/stronglyworded)
 
-# Strongly Worded Letter Generator
+# Strongly Worded
+
+Strongly Worded is a simple web application which lets you create customizable form letters which signees can fill out and turn into PDF for printing and mailing. Built as an alternative to electronic petition sites, Strongly Worded can be used to facilitate civic engagement by mail.
 
 Requires PHP >= 5.6.
 

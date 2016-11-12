@@ -1,6 +1,6 @@
 {
     "name": "greatislander/stronglyworded",
-    "description": "No-frills web based form letter generator.",
+    "description": "No-frills web app for form letter generation.",
     "require": {
         "mpdf/mpdf": "^6.1",
         "michelf/php-markdown": "^1.7",

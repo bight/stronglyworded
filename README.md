@@ -1,6 +1,6 @@
-# Strongly Worded Letter Generator
-
 [![Packagist](https://img.shields.io/packagist/v/greatislander/stronglyworded.svg?style=flat-square)](https://packagist.org/packages/greatislander/stronglyworded)
+
+# Strongly Worded Letter Generator
 
 Requires PHP >= 5.6.
 

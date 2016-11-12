@@ -1,13 +1,23 @@
 {
-    "require-dev": {
-        "SquizLabs/PHP_CodeSniffer": "^2.7"
-    },
+    "name": "greatislander/stronglyworded",
+    "description": "No-frills web based form letter generator.",
     "require": {
         "mpdf/mpdf": "^6.1",
         "michelf/php-markdown": "^1.7",
-        "michelf/php-smartypants": "^1.7"
+        "michelf/php-smartypants": "^1.7",
+        "symfony/yaml": "^3.1"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.7"
     },
     "scripts": {
       "test": "vendor/bin/phpcs"
-    }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ned Zimmerman",
+            "email": "ned@bight.ca"
+        }
+    ]
 }

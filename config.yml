@@ -1,0 +1,11 @@
+recipient:
+  name: "Some Bureaucrat"
+  organization: "Vague Yet Menacing Government Agency"
+  address: "1000 Government Place"
+  city: "Ottawa"
+  province_state: "ON"
+  postalcode_zipcode: "A1B 2C3"
+salutation: "To Whom It May Concern:"
+signoff: "Sincerely,"
+filename: "stronglywordedletter.pdf"
+analytics: "UA-123456-78"

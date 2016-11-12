@@ -32,10 +32,10 @@
             if (!empty($_POST['address'])
                 && isset($_POST['city'])
                 && !empty($_POST['city'])
-                && isset($_POST['province'])
-                && !empty($_POST['province'])
-                && isset($_POST['postalcode'])
-                && !empty($_POST['postalcode'])
+                && isset($_POST['province_state'])
+                && !empty($_POST['province_state'])
+                && isset($_POST['postalcode_zipcode'])
+                && !empty($_POST['postalcode_zipcode'])
                 && isset($_POST['name'])
                 && !empty($_POST['name'])
                 && isset($_POST['letter'])
@@ -52,11 +52,13 @@
                     </div>',
                     $_POST['name'],
                     $_POST['address'] . '<br />'
-                        . $_POST['city'] . ', ' . $_POST['province'] . ' ' . $_POST['postalcode'],
+                        . $_POST['city'] . ', ' . $_POST['province_state'] . ' ' . $_POST['postalcode_zipcode'],
                     date('F j, Y'),
                     (isset($recipient['name'])) ? '<p class="name">' . $recipient['name'] . '<br />' : '<p>',
                     (isset($recipient['organization'])) ? $recipient['organization'] . '</p>' : '</p>',
-                    '<p class="address">' . nl2br($recipient['address']) . '</p>',
+                    '<p class="address">' . $recipient['address'] . '<br />'
+                        . $recipient['city'] . ', ' . $recipient['province_state'] . ' '
+                        . $recipient['postalcode_zipcode'] . '</p>',
                     $salutation,
                     Markdown::defaultTransform($_POST['letter']),
                     $signature,
@@ -65,7 +67,7 @@
                 $mpdf = new mPDF();
                 $mpdf->WriteHTML(file_get_contents(__DIR__ . '/css/print.css'), 1);
                 $mpdf->WriteHTML($letter, 2);
-                $mpdf->Output();
+                $mpdf->Output($filename, 'D');
             } else {
                 printf(
                     '<p class="error">%s</p>',
@@ -78,14 +80,17 @@
         <form class="content" action="" method="post">
         <p class="align-right"><input type="text" name="address" placeholder="Street Address" /></p>
         <p class="align-right"><input type="text" name="city" placeholder="City" /></p>
-        <p class="align-right"><input type="text" name="province" placeholder="Province" /></p>
-        <p class="align-right"><input type="text" name="postalcode" placeholder="Postal Code" /></p>
+        <p class="align-right"><input type="text" name="province_state" placeholder="Province/State" /></p>
+        <p class="align-right"><input type="text" name="postalcode_zipcode" placeholder="Postal Code/Zip Code" /></p>
         <p class="align-right"><?= date('F j, Y'); ?></p>
         <?php printf(
-            '<p class="recipient">%s%s<br />%s</p>',
+            '<p class="recipient">%s%s<br />%s<br />%s, %s %s</p>',
             (isset($recipient['name'])) ? $recipient['name'] . '<br />' : '',
             $recipient['organization'] . '<br />',
-            nl2br($recipient['address'])
+            $recipient['address'],
+            $recipient['city'],
+            $recipient['province_state'],
+            $recipient['postalcode_zipcode']
         );
         printf(
             '<p class="salutation">%s</p>',
@@ -96,8 +101,8 @@
             SmartyPants::defaultTransform($body)
         );
         printf(
-            '<p class="signature">%s</p>',
-            $signature
+            '<p class="signoff">%s</p>',
+            $signoff
         );
         ?>
         <p><input type="text" name="name" placeholder="Your Name" /></p>
